@@ -40,21 +40,26 @@ def index():
             new_blog = Blog(blog_title, blog_entry)
             db.session.add(new_blog)        
             db.session.commit()
-            return redirect("/blog")
+
+            return redirect ("/blog?id=" + str(new_blog.id))
 
     return render_template('newpost.html',title="Add a Blog Entry")
 
 
 @app.route('/blog', methods=['POST', 'GET'])
 def blog_page():
-    all_blogs = Blog.query.all()
-    return render_template('blog.html',title="Build a Blog", 
-        all_blogs = all_blogs)
 
-#@app.route('/individual-blog-page', methods=['GET'])
-#def individual_blog_page():
-#    all_blogs = Blog.query.all()
-#    return render_template('individual_blog_page.html')
+    all_blogs = Blog.query.all()
+
+    if request.args:
+        blog_id = request.args.get('id')
+        single_blog = Blog.query.filter_by(id=blog_id).first()
+        return render_template('individual_blog_page.html', blog=single_blog)
+
+
+    return render_template('blog.html',title="Build a Blog", all_blogs = all_blogs)
+
+
 
 
 if __name__ == '__main__':

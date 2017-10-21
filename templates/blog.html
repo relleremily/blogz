@@ -4,8 +4,9 @@
     <h1 style="text-align:center;">Build A Blog</h1>
     
     {% for blog in all_blogs %}
-        <h2 style="margin-bottom: 0px;">{{blog.blog_title}}</h2>
+        <h2 style="margin-bottom: 0px;"><a href = '/blog?id={{blog.id}}' >{{blog.blog_title}}</a></h2>
         <p style="margin-top: 0px;">{{blog.blog_entry}}</p>
     {% endfor %}
 
 {% endblock %}
+

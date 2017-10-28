@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 style="text-align:center;">Login</h1>
+
+
+
+    <form action="/login" method='post'>
+        <table>
+            <tr>
+                <td><label for="username">Username</label></td>
+                <td>
+                    <input name="username" type="text" value="{{username}}">
+                    <span class="error">{{username_error}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="password">Password</label></td>
+                <td>
+                    <input name="password" type="password">
+                    <span class="error">{{password_error}}</span>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Login">
+    </form>
+
+    <p>If you don't have an account, you may register for one. <a href='/signup'>Create account.</a></p>
+
+
+{% endblock %}

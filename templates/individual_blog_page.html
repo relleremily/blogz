@@ -3,7 +3,8 @@
 {% block content %}
 
         <h1 style="text-align:center;">{{blog.blog_title}}</h1>
-        <p style="text-align:center;">{{blog.blog_entry}}</p>
+        <h3 style="text-align:center;">{{blog.blog_entry}}</h3>
+        <p style="text-align:center;">Written by <a href = '/blog?user={{user.username}}' >{{user.username}}</a></p>
         
 
 {% endblock %}

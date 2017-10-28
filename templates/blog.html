@@ -6,6 +6,7 @@
     {% for blog in all_blogs %}
         <h2 style="margin-bottom: 0px;"><a href = '/blog?id={{blog.id}}' >{{blog.blog_title}}</a></h2>
         <p style="margin-top: 0px;">{{blog.blog_entry}}</p>
+        <h5>Written by <a href = '/blog?user={{blog.owner.username}}' >{{blog.owner.username}}</a></h5><br>
     {% endfor %}
 
 {% endblock %}
